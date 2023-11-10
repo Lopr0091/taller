@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Proveedores - Taller SERVIEXPRESS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Registrar Usuario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Administración de Boletas/Facturas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Registrar Orden de Pedido</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Registrar Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Registrar Proveedores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Administrar Reservas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cerrar Sesión</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Registro de Proveedores</h1>
+        <p>Ingrese los datos del nuevo proveedor:</p>
+        
+        <!-- Formulario de registro de proveedores -->
+        <form>
+            <div class="form-group">
+                <label for="rut">RUT del Proveedor:</label>
+                <input type="text" id="rut" name="rut" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre del Proveedor:</label>
+                <input type="text" id="nombre" name="nombre" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="contacto">Nombre de Contacto:</label>
+                <input type="text" id="contacto" name="contacto" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="rubro">Rubro:</label>
+                <input type="text" id="rubro" name="rubro" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar Proveedor</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
