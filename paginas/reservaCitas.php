@@ -15,20 +15,27 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Inicio</a>
+                    <a class="nav-link" href="../index.php">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Reserva de Citas</a>
+                    <a class="nav-link" href="reservaCitas.php">Reserva de Citas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Historial de Citas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Perfil</a>
+                    <a class="nav-link" href="../includes/cerrarSesion.php">Perfil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cerrar Sesión</a>
+                <?php
+					if($sesion!==null){
+						echo<<<eot
+						<a class="nav-link" href="../includes/cerrarSesion.php">Cerrar Sesion</a>
+						eot;
+					}
+				?>
                 </li>
+		</div> 
             </ul>
         </div>
     </nav>

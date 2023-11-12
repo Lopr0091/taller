@@ -15,13 +15,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Inicio</a>
+                    <a class="nav-link" href="../index.php">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Registrar Usuario</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Administración de Boletas/Facturas</a>
+                    <a class="nav-link" href="ingresoFactura.php">Administración de Boletas/Facturas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Registrar Orden de Pedido</a>
@@ -30,16 +30,22 @@
                     <a class="nav-link" href="#">Registrar Servicios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Registrar Proveedores</a>
+                    <a class="nav-link" href="registroProveedores.php">Registrar Proveedores</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Administrar Reservas</a>
+                    <a class="nav-link" href="reservaCitas.php">Administrar Reservas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Generar Informes</a>
+                    <a class="nav-link" href="generarInforme.php">Generar Informes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cerrar Sesión</a>
+                <?php
+					if($sesion!==null){
+						echo<<<eot
+						<a class="nav-link" href="../includes/cerrarSesion.php">Cerrar Sesion</a>
+						eot;
+					}
+				?>
                 </li>
             </ul>
         </div>
