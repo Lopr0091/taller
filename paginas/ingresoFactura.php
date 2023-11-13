@@ -36,10 +36,10 @@
                         <a class="nav-link" href="ingresoFactura.php">Administración de Boletas/Facturas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Registrar Orden de Pedido</a>
+                        <a class="nav-link" href="registrarOrden.php">Registrar Orden de Pedido</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Registrar Servicios</a>
+                        <a class="nav-link" href="registroServicio.php">Registrar Servicios</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="registroProveedores.php">Registrar Proveedores</a>
