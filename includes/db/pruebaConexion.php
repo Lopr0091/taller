@@ -5,6 +5,5 @@ $query=$conectar;
     die ("fallo".mysqli_connect_error());
  }
     echo"conectado";
- 
  mysqli_close($query);
 ?>
