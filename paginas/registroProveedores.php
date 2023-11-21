@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Proveedores - Taller SERVIEXPRESS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <header>
@@ -52,43 +56,40 @@
             </div>
         </nav>
     </header>
-
-    <div class="container mt-4">
-        <h1>Registro de Proveedores</h1>
-        <p>Ingrese los datos del nuevo proveedor:</p>
-        
-        <!-- Formulario de registro de proveedores -->
-        <form>
-            <div class="form-group">
-                <label for="rut">RUT del Proveedor:</label>
-                <input type="text" id="rut" name="rut" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="nombre">Nombre del Proveedor:</label>
-                <input type="text" id="nombre" name="nombre" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="telefono">Teléfono:</label>
-                <input type="text" id="telefono" name="telefono" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="contacto">Nombre de Contacto:</label>
-                <input type="text" id="contacto" name="contacto" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="rubro">Rubro:</label>
-                <input type="text" id="rubro" name="rubro" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary">Registrar Proveedor</button>
-        </form>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <main>
+        <div class="container mt-4">
+            <h1>Registro de Proveedores</h1>
+            <p>Ingrese los datos del nuevo proveedor:</p>
+            <form method="POST" name="login"action="../includes/db/registrarProveedor.php">
+                <div class="form-group">
+                    <label for="rut">RUT del Proveedor (sin puntos):</label>
+                    <input type="text" id="rut" name="rut" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="rubro">Digito Verificador:</label>
+                    <input type="text" id="digito" name="digito" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre del Proveedor:</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono (9 digitos):</label>
+                    <input type="text" id="telefono" name="telefono" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="contacto">Nombre de Contacto:</label>
+                    <input type="text" id="contacto" name="contacto" class="form-control" required>
+                </div>
+               
+                <button type="submit" class="btn btn-primary">Registrar Proveedor</button>
+            </form>
+        </div>
+    </main>
+    
 </body>
 </html>
