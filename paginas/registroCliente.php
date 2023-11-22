@@ -1,3 +1,7 @@
+<?php
+session_start(); 
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -41,7 +45,7 @@
                     </li>
                     <li class="nav-item">
                     <?php
-                        if($sesion!==null){
+                        if($_SESSION!==null){
                             echo<<<eot
                             <a class="nav-link" href="../includes/cerrarSesion.php">Cerrar Sesion</a>
                             eot;

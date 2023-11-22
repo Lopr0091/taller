@@ -1,3 +1,7 @@
+<?php
+session_start(); 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<header>
+    <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +45,7 @@
                     </li>
                     <li class="nav-item">
                     <?php
-                        if($sesion!==null){
+                        if($_SESSION!==null){
                             echo<<<eot
                             <a class="nav-link" href="../includes/cerrarSesion.php">Cerrar Sesion</a>
                             eot;
@@ -52,5 +56,7 @@
             </div>
         </nav>
     </header>
+    <main>
+    </main>
 </body>
 </html>

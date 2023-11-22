@@ -51,6 +51,7 @@ $usuario=$_SESSION['usuario'];
                         <a class="nav-link" href="paginas/generarInforme.php">Generar Informes</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="../includes/cerrarSesion.php">Cerrar Sesion</a>
                     </li>
                 </ul>
             </div>

@@ -25,3 +25,54 @@ BEGIN
 END //
 
 DELIMITER ;
+
+
+
+
+#funcion para ver si existe el proveedor
+DELIMITER //
+
+CREATE FUNCTION funcion_existenciaProveedor(p_rut INT) RETURNS INT
+BEGIN
+  DECLARE v_count INT;
+  SELECT COUNT(*) INTO v_count FROM proveedor WHERE numrun_proveedor = p_rut;
+  RETURN v_count;
+END;
+
+DELIMITER ;
+
+#Insertar cosas en pedido propducto
+
+DELIMITER //
+CREATE PROCEDURE procedimiento_registrarOrden(
+    IN producto_id INT,
+    IN proveedor_numrun INT
+)
+BEGIN
+    DECLARE nro_pedido_nuevo INT;
+    INSERT INTO orden_pedido (estado, fecha_pedido, proveedor_numrun_proveedor)
+    VALUES ('pendiente', CURDATE(), proveedor_numrun);
+    SET nro_pedido_nuevo = LAST_INSERT_ID();
+    INSERT INTO producto_op (producto_id_producto, orden_pedido_nro_pedido)
+    VALUES (producto_id, nro_pedido_nuevo);
+END;
+//
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER disparador_insertar_producto_op
+AFTER INSERT ON orden_pedido
+FOR EACH ROW
+BEGIN
+    -- Actualizar la tabla producto_op con el nuevo nro_pedido
+    UPDATE producto_op
+    SET orden_pedido_nro_pedido = NEW.nro_pedido
+    WHERE orden_pedido_nro_pedido IS NULL;
+END;
+//
+DELIMITER ;
+
+
+
+
+

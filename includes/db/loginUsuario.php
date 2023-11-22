@@ -12,6 +12,6 @@ if ($resultado['resultado'] == 1) {
     header("Location: ../../index.php");
 } else {
     echo "<script>alert('Combinacion usuario/clave incorrecta'); setTimeout(function() { window.location.href = '../../paginas/loginUsuario.php'; }, 500);</script>";
-    header("Location: ../../index.php");
+    header("Location: ../paginas/loginUsuario.php");
 }
 ?>
