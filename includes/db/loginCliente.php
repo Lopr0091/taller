@@ -1,8 +1,8 @@
 <?php
 require '../../config.php';
 session_start();
-$run_cliente = $_SESSION['usuario'];
-//$run_cliente = $_POST['run_cliente'];
+//$run_cliente = $_SESSION['usuario'];
+$run_cliente = $_POST['run_cliente'];
 $clave_cliente = $_POST['clave_cliente'];
 $logeo = "SELECT funcion_loginCliente('$run_cliente', '$clave_cliente') AS resultado";
 $querylogeo = mysqli_query($conectar, $logeo);
