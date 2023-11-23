@@ -41,7 +41,7 @@
                     </li>
                     <li class="nav-item">
                     <?php
-                        if($_SESSION!==null){
+                        if(isset($usuario)){
                             echo<<<eot
                             <a class="nav-link" href="../includes/cerrarSesion.php">Cerrar Sesion</a>
                             eot;
@@ -58,7 +58,7 @@
                 <label for="rut">RUT del Proveedor (sin puntos):</label>
                 <input type="text" id="rut" name="rut" class="form-control" required>
             </div>
-            <div class="form-gtoup">
+            <div class="form-group">
                 <select name="producto" id="producto">
                     <option value="10001">Aceite Motor</option>
                     <option value="10002">Filtro Aire</option>

@@ -1,7 +1,7 @@
 <?php
 $host="localhost";
-$user="comprara_claudio";
-$clave="Tr@vian5824693170";
+$user="comprara_comprarata";
+$clave="0091@Nime";
 $bd="comprara_taller";
 
 $conectar=mysqli_connect($host,$user,$clave,$bd);

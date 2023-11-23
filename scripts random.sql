@@ -1,4 +1,4 @@
-#Login
+#LoginUsuario
 DELIMITER //
 CREATE OR REPLACE FUNCTION funcion_login(p_nombre VARCHAR(255), p_clave VARCHAR(255)) RETURNS INT
 BEGIN
@@ -72,7 +72,29 @@ END;
 //
 DELIMITER ;
 
+#LoginCliente
+DELIMITER //
+CREATE FUNCTION funcion_loginCliente(p_nombre int, p_clave int) RETURNS INT
+BEGIN
+  DECLARE v_count INT;
+  SELECT COUNT(*) INTO v_count FROM cliente WHERE numrun1 = p_nombre AND numrun1 = p_clave;
+  RETURN v_count;
+END//
+DELIMITER ;
 
+#crear reserva
+DELIMITER //
 
+CREATE PROCEDURE procedimiento_registrarReserva(
+    IN p_fecha_reserva DATE,
+    IN p_hora_reserva TIME,
+    IN p_cliente_numrun INT
+)
+BEGIN
+    INSERT INTO reserva (fecha_reserva, hora_reserva, cliente_numrun1)
+    VALUES (p_fecha_reserva, p_hora_reserva, p_cliente_numrun);
+END;
 
+//
 
+DELIMITER ;

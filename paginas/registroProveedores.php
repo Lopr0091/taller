@@ -48,9 +48,9 @@ session_start();
                     </li>
                     <li class="nav-item">
                     <?php
-                        if($_SESSION!==null){
+                        if(isset($usuario)){
                             echo<<<eot
-                            <a class="nav-link" href="../includes/cerrarSesion.php">Cerrar Sesion</a>
+                            <a class="nav-link" href="../includes/bd/cerrarSesion.php">Cerrar Sesion</a>
                             eot;
                         }
                     ?>
@@ -61,7 +61,7 @@ session_start();
     </header>
     <main>
         <?php
-            if($_SESSION!==null){
+            if(isset($usuario)){
         echo<<<eot
         <div class="container mt-4">
             <h1>Registro de Proveedores</h1>

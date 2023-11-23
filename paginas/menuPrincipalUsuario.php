@@ -1,6 +1,6 @@
 <?php
-session_start(); 
-
+session_start();
+$usuario=$_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,11 +8,13 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<?php
+            if(isset($usuario)){
+        echo<<<eot
+    <main>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,7 +37,7 @@ session_start();
                         <a class="nav-link" href="registroServicio.php">Registrar Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="registroProveedores.php">Registrar Proveedores</a>
+                        <a class="nav-link" href="pregistroProveedores.php">Registrar Proveedores</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="reservaCitas.php">Administrar Reservas</a>
@@ -44,19 +46,19 @@ session_start();
                         <a class="nav-link" href="generarInforme.php">Generar Informes</a>
                     </li>
                     <li class="nav-item">
-                    <?php
-                        if(isset($usuario)){
-                            echo<<<eot
-                            <a class="nav-link" href="../includes/bd/cerrarSesion.php">Cerrar Sesion</a>
-                            eot;
-                        }
-                    ?>
+                        <a class="nav-link" href="../includes/db/cerrarSesion.php">Cerrar Sesion</a>
                     </li>
                 </ul>
             </div>
         </nav>
-    </header>
-    <main>
     </main>
+    eot;}
+    else{
+        echo<<<EOT
+        <p>No haz iniciado sesion</p>
+        <a href="loginUsuario.php">Haz click aqui para iniciar sesion</a>
+        EOT;
+        }
+        ?>
 </body>
 </html>
