@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-
+$usuario=$_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -50,7 +50,7 @@ session_start();
                     <?php
                         if(isset($usuario)){
                             echo<<<eot
-                            <a class="nav-link" href="../includes/bd/cerrarSesion.php">Cerrar Sesion</a>
+                            <a class="nav-link" href="../includes/db/cerrarSesion.php">Cerrar Sesion</a>
                             eot;
                         }
                     ?>

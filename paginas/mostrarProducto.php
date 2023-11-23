@@ -52,7 +52,7 @@ $conectarsql=mysqli_query($conectar,$sql);
                     <?php
                         if($sesion!==null){
                             echo<<<eot
-                            <a class="nav-link" href="../includes/cerrarSesion.php">Cerrar Sesion</a>
+                            <a class="nav-link" href="../includes/db/cerrarSesion.php">Cerrar Sesion</a>
                             eot;
                         }
                     ?>
