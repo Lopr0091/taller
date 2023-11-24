@@ -9,5 +9,5 @@ $email_proveedor=$_POST['email'];
 $contacto_proveedor=$_POST['contacto'];
 $llamarProcedimientoInsertarProveedor=" CALL InsertarProveedor($rut_proveedor, '$digito_proveedor', '$nombre_proveedor', $telefono_proveedor, '$email_proveedor', '$contacto_proveedor')";
 $queryllamarProcedimientoInsertarProveedor=mysqli_query($conectar, $llamarProcedimientoInsertarProveedor);
-header("Location: ../paginas/menuPrincipalCliente.php");
+header("Location: ../../paginas/menuPrincipalUsuario.php");
 ?>

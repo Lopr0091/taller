@@ -1,30 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Agrega el enlace al archivo CSS de Bootstrap (puedes cambiar la versión si es necesario) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
 
     </header>
-    <main>
-    <form method="POST" name="login"action="../includes/db/loginUsuario.php">
-            <div class="form-group">
-                <label for="correo_usuario">Usuario: </label>
-                <input id="correo_usuario" name="correo_usuario" placeholder="correo" type="text">
+    <main class="container mt-5">
+        <form method="POST" name="login" action="../includes/db/loginUsuario.php" class="col-md-6 offset-md-3">
+            <h2 class="mb-4">Iniciar Sesión</h2>
+            <div class="mb-3">
+                <label for="correo_usuario" class="form-label">Usuario:</label>
+                <input id="correo_usuario" name="correo_usuario" placeholder="Correo" type="text" class="form-control">
             </div>
-            <div class="form-group">
-                <label for="clave">Clave: </label>
-                <input id="clave_usuario" name="clave_usuario" placeholder="clave_usuario" type="password" >
+            <div class="mb-3">
+                <label for="clave_usuario" class="form-label">Clave:</label>
+                <input id="clave_usuario" name="clave_usuario" placeholder="Clave" type="password" class="form-control">
             </div>
-            <button type="submit">Ingresar</button>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
         </form>
     </main>
     <footer>
         
     </footer>
+
+    <!-- Agrega el script de Bootstrap (necesario para algunos componentes y funcionalidades) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -52,16 +52,13 @@ $usuario=$_SESSION['usuario'];
                         <a class="nav-link" href="reservaCitas.php">Administrar Reservas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="generarInforme.php">Generar Informes</a>
-                    </li>
-                    <li class="nav-item">
-                    <?php
-                        if($_SESSION!==null){
-                            echo<<<eot
-                            <a class="nav-link" href="../includes/db/cerrarSesion.php">Cerrar Sesion</a>
-                            eot;
-                        }
-                    ?>
+                        <?php
+                            if($_SESSION!==null){
+                                echo<<<eot
+                                <a class="nav-link" href="../includes/db/cerrarSesion.php">Cerrar Sesion</a>
+                                eot;
+                            }
+                        ?>
                     </li>
                 </ul>
             </div>
@@ -101,11 +98,11 @@ $usuario=$_SESSION['usuario'];
                 <tbody>
                     <!-- Aquí puedes agregar dinámicamente más filas para los ítems -->
                     <tr>
-                        <td>1</td>
-                        <td><input type="text" class="form-control" name="descripcion[]"></td>
-                        <td><input type="text" class="form-control" name="cantidad[]"></td>
-                        <td><input type="text" class="form-control" name="precioUnitario[]"></td>
-                        <td>0</td>
+                        <td class="item-num">1</td>
+                        <td><input type="text" class="form-control descripcion" name="descripcion[]"></td>
+                        <td><input type="text" class="form-control cantidad" name="cantidad[]"></td>
+                        <td><input type="text" class="form-control precioUnitario" name="precioUnitario[]"></td>
+                        <td class="total">0</td>
                     </tr>
                 </tbody>
             </table>
@@ -124,15 +121,34 @@ $usuario=$_SESSION['usuario'];
     <script>
         $(document).ready(function() {
             $("#agregarItem").click(function() {
+                var numItems = $(".item-num").length + 1;
                 var newItem = '<tr>' +
-                    '<td>1</td>' +
-                    '<td><input type="text" class="form-control" name="descripcion[]"></td>' +
-                    '<td><input type="text" class="form-control" name="cantidad[]"></td>' +
-                    '<td><input type="text" class="form-control" name="precioUnitario[]"></td>' +
-                    '<td>0</td>' +
+                    '<td class="item-num">' + numItems + '</td>' +
+                    '<td><input type="text" class="form-control descripcion" name="descripcion[]"></td>' +
+                    '<td><input type="text" class="form-control cantidad" name="cantidad[]"></td>' +
+                    '<td><input type="text" class="form-control precioUnitario" name="precioUnitario[]"></td>' +
+                    '<td class="total">0</td>' +
                 '</tr>';
                 $("table tbody").append(newItem);
             });
+
+            $("tbody").on("input", "input[name='cantidad[]'], input[name='precioUnitario[]']", function () {
+                var fila = $(this).closest("tr");
+                var cantidad = parseFloat(fila.find("input.cantidad").val()) || 0;
+                var precioUnitario = parseFloat(fila.find("input.precioUnitario").val()) || 0;
+                var total = cantidad * precioUnitario;
+                fila.find("td.total").text(total.toFixed(2));
+
+                actualizarMontoTotal();
+            });
+
+            function actualizarMontoTotal() {
+                var montoTotal = 0;
+                $("td.total").each(function () {
+                    montoTotal += parseFloat($(this).text()) || 0;
+                });
+                $("#montoTotal").val(montoTotal.toFixed(2));
+            }
         });
     </script>
 </body>

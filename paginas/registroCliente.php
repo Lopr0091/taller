@@ -58,21 +58,23 @@ $usuario=$_SESSION['usuario'];
     </header>
 
     <div class="container mt-4">
-        <h1>Registro de Clientes - Empleado</h1>
+        <h1>Registro de Clientes</h1>
         <p>Ingrese los datos del nuevo cliente:</p>
-        
-        <!-- Formulario de registro de clientes por parte del empleado -->
-        <form>
+        <form method="POST" name="login"action="../includes/db/registrarCliente.php">
             <div class="form-row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label for="rut">RUT:</label>
                     <input type="text" id="rut" name="rut" class="form-control" required>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
+                    <label for="rut">Digito verificador:</label>
+                    <input type="text" id="dv" name="dv" class="form-control" required>
+                </div>
+                <div class="form-group col-md-3">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" class="form-control" required>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label for="primerNombre">Primer Nombre:</label>
                     <input type="text" id="primerNombre" name="primerNombre" class="form-control" required>
                 </div>
@@ -92,19 +94,15 @@ $usuario=$_SESSION['usuario'];
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-4">
                     <label for="telefono">Teléfono:</label>
                     <input type="text" id="telefono" name="telefono" class="form-control" required>
                 </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-4">
                     <label for="giro">Giro:</label>
                     <input type="text" id="giro" name="giro" class="form-control">
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="montoFiado">Monto Fiado:</label>
-                    <input type="text" id="montoFiado" name="montoFiado" class="form-control" required>
-                </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-4">
                     <label for="limiteFiado">Límite Fiado:</label>
                     <input type="text" id="limiteFiado" name="limiteFiado" class="form-control" required>
                 </div>
@@ -114,8 +112,12 @@ $usuario=$_SESSION['usuario'];
                 <input type="text" id="razonSocial" name="razonSocial" class="form-control">
             </div>
             <div class="form-group">
-                <label for="calle">Dirección (Calle, Número):</label>
+                <label for="calle">Dirección (Calle):</label>
                 <input type="text" id="calle" name="calle" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="calle">Dirección (Numero):</label>
+                <input type="text" id="numero" name="numero" class="form-control" required>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">

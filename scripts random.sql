@@ -98,3 +98,22 @@ END;
 //
 
 DELIMITER ;
+
+
+#Insertar Cliente
+DELIMITER //
+CREATE PROCEDURE InsertarCliente(
+    IN p_numrun_cliente INT,
+    IN p_giro_cliente varchar(100),
+    IN p_monto_fiado decimal(8,0),
+    IN p_limite_fiado decimal(8,0),
+    IN p_razon_social VARCHAR(100),
+    IN p_direccion_nombre_calle VARCHAR(50),
+    in p_direccion_numero int
+)
+BEGIN
+    INSERT INTO cliente (numrun1, giro, monto_fiado, limite_fiado, razon_social, direccion_nombre_calle,direccion_numero)
+    VALUES (p_numrun_cliente, p_giro_cliente, 0, p_limite_fiado, p_razon_social, p_direccion_nombre_calle, p_direccion_numero);
+END //
+
+DELIMITER ;
