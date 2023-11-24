@@ -29,7 +29,7 @@ $usuario=$_SESSION['usuario'];
                         <a class="nav-link" href="reservaCitas.php">Reserva de Citas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Historial de Citas</a>
+                        <a class="nav-link" href="historialCitas.php">Historial de Citas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Perfil</a>
@@ -54,14 +54,25 @@ $usuario=$_SESSION['usuario'];
             <p>Seleccione la fecha y hora para su cita:</p>
             <form method="POST" name="login"action="../includes/db/reservarCita.php">
             <input type="hidden" name="run_cliente" value="<?php echo $run_cliente; ?>">
-                <div class="form-group">
-                    <label for="fecha">Fecha:</label>
-                    <input type="date" id="fecha" name="fecha" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="hora">Hora:</label>
-                    <input type="time" id="hora" name="hora" class="form-control">
-                </div>
+            <div class="form-group">
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="hora">Hora:</label>
+                <select id="hora_reserva" name="hora_reserva" class="form-control">
+                    <?php
+                    $horaInicio = strtotime("09:00");
+                    $horaFin = strtotime("17:00");
+
+                    while ($horaInicio <= $horaFin) {
+                        echo '<option value="' . date("H:i", $horaInicio) . '">' . date("H:i", $horaInicio) . '</option>';
+                        $horaInicio += 1800; // Añadir 30 minutos en segundos
+                    }
+                    ?>
+                </select>
+            </div>
+
                 <button type="submit" class="btn btn-primary">Reservar Cita</button>
             </form>
         </div>

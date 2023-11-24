@@ -1,9 +1,3 @@
-<?php
-//session_start(); 
-require '../config.php';
-$sql = "SELECT id_producto, nombre_producto, descripción, stock, valor_producto FROM producto";
-$conectarsql=mysqli_query($conectar,$sql);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +5,9 @@ $conectarsql=mysqli_query($conectar,$sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <header>
@@ -28,7 +22,7 @@ $conectarsql=mysqli_query($conectar,$sql);
                         <a class="nav-link" href="../index.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="registroCliente.php">Registrar Cliente</a>
+                        <a class="nav-link" href="registroCliente.php">Registrar Usuario</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ingresoFactura.php">Administración de Boletas/Facturas</a>
@@ -50,7 +44,7 @@ $conectarsql=mysqli_query($conectar,$sql);
                     </li>
                     <li class="nav-item">
                     <?php
-                        if($sesion!==null){
+                        if($_SESSION!==null){
                             echo<<<eot
                             <a class="nav-link" href="../includes/db/cerrarSesion.php">Cerrar Sesion</a>
                             eot;
@@ -62,41 +56,36 @@ $conectarsql=mysqli_query($conectar,$sql);
         </nav>
     </header>
     <main>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Stock</th>
-                <th>Valor</th>
-            </tr>
-        </thead>
-        <?php
-        
-        while ($row = $conectarsql->fetch_array()) {
-            $id = $row['id_producto'];
-            $nombre_producto = $row['nombre_producto'];
-            $descripcion = $row['descripcion'];
-            $stock = $row['stock'];
-            $valor = $row['valor'];
-        ?>        
-        <div id="productos">
-        
-        <tbody>
-            <tr>
-                <td><?php echo $id ?></td>
-                <td><?php echo $nombre_producto ?></td>
-                <td><?php echo $descripcion ?></td>
-                <td><?php echo $stock ?></td>
-                <td><?php echo $valor ?></td>
-            </tr>
-        </tbody>
-    </table>
-                </div>
-        <?php
-        }
-        ?>
+        <div class="container mt-4">
+            <h1>Reserva de Citas</h1>
+            <form method="POST" name="login"action="../includes/db/reservarCitaUsuario.php">
+            <input type="hidden" name="run_cliente" value="<?php echo $run_cliente; ?>">
+            <div class="form-group">
+                <label for="run">Run Cliente:</label>
+                <input type="text" id="run" name="run" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="hora">Hora:</label>
+                <select id="hora_reserva" name="hora_reserva" class="form-control">
+                    <?php
+                    $horaInicio = strtotime("09:00");
+                    $horaFin = strtotime("17:00");
+
+                    while ($horaInicio <= $horaFin) {
+                        echo '<option value="' . date("H:i", $horaInicio) . '">' . date("H:i", $horaInicio) . '</option>';
+                        $horaInicio += 1800;
+                    }
+                    ?>
+                </select>
+            </div>
+
+                <button type="submit" class="btn btn-primary">Reservar Cita</button>
+            </form>
+        </div>
     </main>
 </body>
 </html>

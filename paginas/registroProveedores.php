@@ -26,7 +26,7 @@ $usuario=$_SESSION['usuario'];
                         <a class="nav-link" href="../index.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Registrar Usuario</a>
+                        <a class="nav-link" href="registroCliente.php">Registrar Cliente</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ingresoFactura.php">Administración de Boletas/Facturas</a>
@@ -41,7 +41,7 @@ $usuario=$_SESSION['usuario'];
                         <a class="nav-link" href="registroProveedores.php">Registrar Proveedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="reservaCitas.php">Administrar Reservas</a>
+                        <a class="nav-link" href="reservaCitaUsuario.php">Administrar Reservas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="generarInforme.php">Generar Informes</a>

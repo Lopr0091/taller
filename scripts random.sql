@@ -117,3 +117,15 @@ BEGIN
 END //
 
 DELIMITER ;
+
+#Eliminar reserva
+DELIMITER //
+
+CREATE PROCEDURE procedimiento_eliminarReserva(
+    IN p_nro_reserva INT
+)
+BEGIN
+    DELETE FROM reserva WHERE nro_reserva = p_nro_reserva;
+END//
+
+DELIMITER ;

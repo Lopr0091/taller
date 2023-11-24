@@ -28,7 +28,7 @@ $usuario=$_SESSION['usuario'];
                         <a class="nav-link" href="reservaCitas.php">Reserva de Citas</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Historial de Citas</a>
+                    <a class="nav-link" href="historialCitas.php">Historial de Citas</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="#">Perfil</a>

@@ -7,7 +7,7 @@ $fechaFormateada = date("Y-m-d", strtotime($fecha_reserva));
 $hora_reserva = $_POST['hora_reserva'];
 $horaFormateada = date("H:i:s", strtotime($hora_reserva));
 error_log("Fecha formateada: $fechaFormateada, Hora formateada: $horaFormateada");
-$cliente_numrun = $_SESSION['usuario'];
+$cliente_numrun = $_POST['run'];
 
 $insertar = "CALL procedimiento_registrarReserva('$fechaFormateada','$horaFormateada',$cliente_numrun);";
 $query = mysqli_query($conectar, $insertar);
