@@ -60,11 +60,24 @@ $usuario=$_SESSION['usuario'];
                 </div>
                 <div class="form-group">
                     <label for="hora">Hora:</label>
-                    <input type="time" id="hora" name="hora" class="form-control">
+                    <select id="hora" name="hora" class="form-control"></select>
                 </div>
                 <button type="submit" class="btn btn-primary">Reservar Cita</button>
             </form>
         </div>
     </main>
 </body>
+<script>
+    window.onload = function() {
+        var selectHora = document.getElementById('hora');
+        for(var i = 0; i <= 23; i++) {
+            for(var j = 0; j < 60; j += 30) { // Incrementa en 30 minutos
+                var hora = i.toString().padStart(2, '0');
+                var minuto = j.toString().padStart(2, '0');
+                selectHora.innerHTML += '<option value="' + hora + ':' + minuto + '">' + hora + ':' + minuto + '</option>';
+            }
+        }
+    };
+</script>
+
 </html>
