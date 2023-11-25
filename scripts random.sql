@@ -129,3 +129,31 @@ BEGIN
 END//
 
 DELIMITER ;
+
+
+#Registrar Servicio
+DELIMITER //
+
+CREATE PROCEDURE procedimiento_insertarServicio(
+    IN p_servicio_id INT,
+    IN p_patente VARCHAR(6),
+    IN p_cliente_numrun INT,
+in p_empleado_numrun int
+)
+BEGIN
+    DECLARE v_atencion_id INT;
+    DECLARE v_fecha_servicio DATE;
+
+    SET v_fecha_servicio = CURDATE();
+
+    INSERT INTO atencion (factura_nro_factura, boleta_nro_boleta, empleado_numrun1, cliente_numrun1, vehiculo_patente)
+    VALUES (0, 0, p_empleado_numrun, p_cliente_numrun, p_patente);
+
+    SET v_atencion_id = LAST_INSERT_ID();
+
+    INSERT INTO atencion_servicio (atencion_id_atencion, servicio_id_servicio, fecha_servicio)
+    VALUES (v_atencion_id, p_servicio_id, v_fecha_servicio);
+
+END //
+
+DELIMITER ;

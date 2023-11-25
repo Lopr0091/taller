@@ -8,6 +8,17 @@ $usuario=$_SESSION['usuario'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .login-message {
+            text-align: center;
+        }
+
+        .login-link {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 <?php
@@ -22,7 +33,7 @@ $usuario=$_SESSION['usuario'];
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Inicio</a>
+                        <a class="nav-link" href="menuPrincipalCliente.php">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="reservaCitas.php">Reserva de Citas</a>
@@ -43,10 +54,13 @@ $usuario=$_SESSION['usuario'];
     eot;}
     else{
         echo<<<EOT
-        <p>No haz iniciado sesion</p>
-        <a href="loginCliente.php">Haz click aqui para iniciar sesion</a>
+        <div class="login-message">
+            <p>No has iniciado sesión</p>
+            <a class="login-link" href="loginCliente.php">Haz clic aquí para iniciar sesión</a>
+        </div>
         EOT;
         }
         ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

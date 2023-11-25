@@ -1,17 +1,20 @@
 <?php
-session_start(); 
-$usuario=$_SESSION['usuario'];
+session_start();
+$usuario = $_SESSION['usuario'];
+require '../config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+
 <body>
-    <header>
+<header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,10 +23,10 @@ $usuario=$_SESSION['usuario'];
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Inicio</a>
+                        <a class="nav-link" href="menuPrincipalUsuario.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Registrar Usuario</a>
+                        <a class="nav-link" href="registroCliente.php">Registrar Cliente</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ingresoFactura.php">Administración de Boletas/Facturas</a>
@@ -38,14 +41,14 @@ $usuario=$_SESSION['usuario'];
                         <a class="nav-link" href="registroProveedores.php">Registrar Proveedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="reservaCitas.php">Administrar Reservas</a>
+                        <a class="nav-link" href="reservaCitaUsuario.php">Administrar Reservas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="generarInforme.php">Generar Informes</a>
                     </li>
                     <li class="nav-item">
                     <?php
-                        if(isset($usuario)){
+                        if($_SESSION!==null){
                             echo<<<eot
                             <a class="nav-link" href="../includes/db/cerrarSesion.php">Cerrar Sesion</a>
                             eot;
@@ -57,6 +60,62 @@ $usuario=$_SESSION['usuario'];
         </nav>
     </header>
     <main>
+        <?php
+        if (isset($usuario)) {
+            $query = "SELECT id_servicio, nombre_servicio, precio_servicio FROM servicio";
+            $result = mysqli_query($conectar, $query);
+        ?>
+            <form method="POST" name="login"action="../includes/db/registrarCliente.php">
+                <div class="form-group">
+                    <label for="servicio">Servicio:</label>
+                    <select class="form-control" id="servicio" name="servicio" onchange="mostrarPrecio()">
+                        <?php
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<option value='{$row['id_servicio']}' data-precio='{$row['precio_servicio']}'>{$row['nombre_servicio']}</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="valor">Valor:</label>
+                    <input type="text" class="form-control" id="valor" name="valor" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="patente">Patente Vehículo:</label>
+                    <input type="text" class="form-control" id="patente" name="patente">
+                </div>
+                <div class="form-group">
+                    <label for="run">RUN Cliente:</label>
+                    <input type="text" class="form-control" id="run" name="run">
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+
+            <script>
+                function mostrarPrecio() {
+                    var select = document.getElementById("servicio");
+                    var valorInput = document.getElementById("valor");
+
+                    // Obtener el precio del servicio seleccionado
+                    var precioSeleccionado = select.options[select.selectedIndex].getAttribute("data-precio");
+
+                    // Mostrar el precio en el campo de valor
+                    valorInput.value = precioSeleccionado;
+                }
+            </script>
+        <?php
+            // Liberar el resultado
+            mysqli_free_result($result);
+        } else {
+            echo <<<EOT
+            <div class="login-message">
+                <p>No has iniciado sesión</p>
+                <a class="login-link" href="loginUsuario.php">Haz clic aquí para iniciar sesión</a>
+            </div>
+            EOT;
+        }
+        ?>
     </main>
 </body>
+
 </html>

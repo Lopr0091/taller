@@ -20,6 +20,16 @@ $usuario=$_SESSION['usuario'];
             margin-top: 50px;
         }
     </style>
+    <style>
+        .login-message {
+            text-align: center;
+        }
+
+        .login-link {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -31,7 +41,7 @@ $usuario=$_SESSION['usuario'];
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Inicio</a>
+                        <a class="nav-link" href="menuPrincipalUsuario.php">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="registroCliente.php">Registrar Cliente</a>

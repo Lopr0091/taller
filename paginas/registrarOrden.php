@@ -20,7 +20,7 @@ $usuario=$_SESSION['usuario'];
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Inicio</a>
+                        <a class="nav-link" href="menuPrincipalUsuario.php">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="registroCliente.php">Registrar Cliente</a>
@@ -56,6 +56,9 @@ $usuario=$_SESSION['usuario'];
             </div>
         </nav>
     </header>
+    <?php
+            if(isset($usuario)){
+        echo<<<eot
     <main>
         <form method="POST" name="login"action="../includes/db/registrarOrden.php">
             <div class="form-group">
@@ -139,5 +142,15 @@ $usuario=$_SESSION['usuario'];
             <button type="submit" class="btn btn-primary">Registrar pedido</button>
         </form>
     </main>
+    eot;}
+    else{
+        echo <<<EOT
+        <div class="login-message">
+        <p>No has iniciado sesión</p>
+        <a class="login-link" href="loginUsuario.php">Haz clic aquí para iniciar sesión</a>
+    </div>
+EOT;
+        }
+        ?>
 </body>
 </html>

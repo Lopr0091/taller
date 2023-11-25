@@ -66,7 +66,7 @@
             </div>
             <div class="form-group">
                 <label for="fecha">Fecha:</label>
-                <input type="date" id="fecha" name="fecha" class="form-control">
+                <input type="date" id="fecha_reserva" name="fecha_reserva" class="form-control">
             </div>
             <div class="form-group">
                 <label for="hora">Hora:</label>

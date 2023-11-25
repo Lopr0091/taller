@@ -19,5 +19,5 @@ $ciudad_cliente=$_POST['ciudad'];
 $region_cliente=$_POST['region'];
 $llamarProcedimientoInsertarCliente=" CALL insertarCliente($rut_cliente, '$giro_cliente', 0, $limitefiado_cliente, '$razonsocial_cliente', '$calle_cliente',$numero_cliente);";
 $queryllamarProcedimientoInsertarCliente=mysqli_query($conectar, $llamarProcedimientoInsertarCliente);
-header("Location: ../../paginas/menuPrincipalUsuario.php");
+echo "<script>alert('Cliente registrado'); window.location.href='../../paginas/registroCliente.php';</script>";
 ?>

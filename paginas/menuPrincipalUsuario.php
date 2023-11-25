@@ -9,6 +9,18 @@ $usuario = $_SESSION['usuario'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+
+        .login-message {
+            text-align: center;
+        }
+
+        .login-link {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -26,7 +38,7 @@ $usuario = $_SESSION['usuario'];
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="../index.php">Inicio</a>
+                                <a class="nav-link" href="menuPrincipalUsuario.php">Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="registroCliente.php">Registrar Cliente</a>
@@ -61,19 +73,13 @@ $usuario = $_SESSION['usuario'];
 eot;
     } else {
         echo <<<EOT
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-12">
-                <p>No haz iniciado sesión</p>
-                <a href="loginUsuario.php">Haz click aquí para iniciar sesión</a>
-            </div>
-        </div>
+        <div class="login-message">
+        <p>No has iniciado sesión</p>
+        <a class="login-link" href="loginUsuario.php">Haz clic aquí para iniciar sesión</a>
     </div>
 EOT;
     }
     ?>
-
-    <!-- Agrega el script de Bootstrap (necesario para algunos componentes y funcionalidades) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- Agrega el enlace al archivo CSS de Bootstrap (puedes cambiar la versión si es necesario) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -28,8 +27,6 @@
     <footer>
         
     </footer>
-
-    <!-- Agrega el script de Bootstrap (necesario para algunos componentes y funcionalidades) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

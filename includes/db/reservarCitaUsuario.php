@@ -11,7 +11,7 @@ $cliente_numrun = $_POST['run'];
 
 $insertar = "CALL procedimiento_registrarReserva('$fechaFormateada','$horaFormateada',$cliente_numrun);";
 $query = mysqli_query($conectar, $insertar);
-echo "<script>alert('Orden registrada'); window.location.href='../../paginas/reservaCitas.php';</script>";
+echo "<script>alert('Reserva registrada'); window.location.href='../../paginas/reservaCitaUsuario.php';</script>";
 
 }
 if (!$query) {

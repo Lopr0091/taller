@@ -23,7 +23,7 @@ $usuario=$_SESSION['usuario'];
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Inicio</a>
+                        <a class="nav-link" href="menuPrincipalUsuario.php">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="registroCliente.php">Registrar Cliente</a>
@@ -99,11 +99,13 @@ $usuario=$_SESSION['usuario'];
     eot;
             }
             else{
-            echo<<<EOT
-            <p>No haz iniciado sesion</p>
-            <a href="loginUsuario.php">Haz click aqui para iniciar sesion</a>
-            EOT;
-            }
-            ?>
+                echo <<<EOT
+                <div class="login-message">
+                <p>No has iniciado sesión</p>
+                <a class="login-link" href="loginUsuario.php">Haz clic aquí para iniciar sesión</a>
+            </div>
+        EOT;
+                }
+                ?>
 </body>
 </html>
