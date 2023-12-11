@@ -2,10 +2,6 @@
 session_start();
 $usuario = $_SESSION['usuario'];
 ?>
-<?php
-session_start();
-$usuario = $_SESSION['usuario'];
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +30,7 @@ $usuario = $_SESSION['usuario'];
         }
 
         .navbar {
-            background-color: #343a40; 
+            background-color: #343a40; /* Cambiado a gris del menú */
         }
 
         .navbar-brand, .navbar-nav .nav-link {
@@ -79,13 +75,13 @@ $usuario = $_SESSION['usuario'];
         }
 
         .btn-orange {
-            background-color: #343a40; 
+            background-color: #343a40; /* Cambiado a naranja del menú */
             color: white;
             border: none;
         }
 
         .btn-orange:hover {
-            background-color: black; 
+            background-color: black; /* Cambiado a negro en el hover */
             color: gray;
         }
     </style>
@@ -99,6 +95,7 @@ $usuario = $_SESSION['usuario'];
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <!-- Mantenemos la clase justify-content-end -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="menuPrincipalCliente.php">Inicio</a>
@@ -120,6 +117,7 @@ $usuario = $_SESSION['usuario'];
         </div>
     </nav>
 
+    <!-- Contenido de ejemplo con cards -->
     <div class="container mt-5">
         <h1 class="text-center mb-4">Bienvenido al Taller Mecánico SERVIEXPRESS</h1>
         <p class="text-center">En SERVIEXPRESS, nos dedicamos a ofrecer servicios de alta calidad para el mantenimiento y reparación de vehículos. Nuestro taller cuenta con profesionales expertos y tecnología de vanguardia para garantizar la satisfacción de nuestros clientes.</p>
