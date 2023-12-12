@@ -45,6 +45,32 @@ mysqli_close($conectar);
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #343a40;
+            padding: 15px 0;
+        }
+
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff !important;
+        }
+
+        main {
+            margin-top: 20px;
+        }
+
+        .table-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -81,46 +107,48 @@ mysqli_close($conectar);
         </nav>
     </header>
     <main>
-        <h1>Historial de Citas</h1>
+        <div class="table-container">
+            <h1 class="text-center">Historial de Citas</h1>
 
-        <?php if (empty($reservas)): ?>
-            <p>No hay reservas disponibles.</p>
-        <?php else: ?>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Número de Reserva</th>
-                        <th>Fecha de Reserva</th>
-                        <th>Hora de Reserva</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($reservas as $reserva): ?>
-                        <?php
-                            // Verifica si la fecha de la reserva es posterior al día de hoy
-                            $puede_anular = strtotime($reserva['fecha_reserva']) > strtotime(date("Y-m-d"));
-                        ?>
+            <?php if (empty($reservas)): ?>
+                <p class="text-center">No hay reservas disponibles.</p>
+            <?php else: ?>
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td><?php echo $reserva['nro_reserva']; ?></td>
-                            <td><?php echo $reserva['fecha_reserva']; ?></td>
-                            <td><?php echo $reserva['hora_reserva']; ?></td>
-                            <td>
-                                <?php if ($puede_anular): ?>
-                                    <!-- Agrega un formulario por cada botón "Anular" -->
-                                    <form method="post" action="">
-                                        <input type="hidden" name="nro_reserva" value="<?php echo $reserva['nro_reserva']; ?>">
-                                        <button type="submit" name="anular_reserva" class="btn btn-danger">Anular</button>
-                                    </form>
-                                <?php else: ?>
-                                    <span>La reserva ya pasó</span>
-                                <?php endif; ?>
-                            </td>
+                            <th>Número de Reserva</th>
+                            <th>Fecha de Reserva</th>
+                            <th>Hora de Reserva</th>
+                            <th>Acciones</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        <?php endif; ?>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($reservas as $reserva): ?>
+                            <?php
+                                // Verifica si la fecha de la reserva es posterior al día de hoy
+                                $puede_anular = strtotime($reserva['fecha_reserva']) > strtotime(date("Y-m-d"));
+                            ?>
+                            <tr>
+                                <td><?php echo $reserva['nro_reserva']; ?></td>
+                                <td><?php echo $reserva['fecha_reserva']; ?></td>
+                                <td><?php echo $reserva['hora_reserva']; ?></td>
+                                <td>
+                                    <?php if ($puede_anular): ?>
+                                        <!-- Agrega un formulario por cada botón "Anular" -->
+                                        <form method="post" action="">
+                                            <input type="hidden" name="nro_reserva" value="<?php echo $reserva['nro_reserva']; ?>">
+                                            <button type="submit" name="anular_reserva" class="btn btn-danger">Anular</button>
+                                        </form>
+                                    <?php else: ?>
+                                        <span>La reserva ya pasó</span>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
+        </div>
     </main>
 </body>
 </html>

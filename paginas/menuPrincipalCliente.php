@@ -145,28 +145,7 @@ $usuario = $_SESSION['usuario'];
                 </div>
             </div>
 
-            <!-- Card 3 -->
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Explora Nuestros Servicios</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Explora nuestros servicios y programa tu próxima visita.</p>
-                    <a href="#" class="btn btn-orange">Ver más</a>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Actualiza Tu Perfil</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Actualiza tu perfil y mantén tu información al día.</p>
-                    <a href="#" class="btn btn-orange">Ver más</a>
-                </div>
-            </div>
-        </div>
+            
 
         <p class="text-center mt-4">Estamos comprometidos con brindarte una experiencia conveniente y eficiente. ¡Gracias por confiar en SERVIEXPRESS!</p>
     </div>
