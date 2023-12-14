@@ -1,23 +1,89 @@
 <?php
-session_start(); 
-$usuario=$_SESSION['usuario'];
+session_start();
+$usuario = $_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Registrar Orden- Taller Mecánico SERVIEXPRESS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #343a40;
+            padding: 15px 0;
+            border-bottom: 2px solid #fff;
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            margin-right: 10px;
+            padding: 15px 0;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        .btn-orange {
+            background-color: #fd7e14;
+            color: #fff;
+            border: none;
+            margin-bottom: 3%;
+            margin-top: 1%;
+        }
+
+        .btn-orange:hover {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+
+        .card {
+            width: 80%;
+        }
+    </style>
+    <style>
+        .login-message {
+            text-align: center;
+        }
+
+        .login-link {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
             <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="menuPrincipalUsuario.php">Inicio</a>
@@ -44,26 +110,28 @@ $usuario=$_SESSION['usuario'];
                         <a class="nav-link" href="generarInforme.php">Generar Informes</a>
                     </li>
                     <li class="nav-item">
-                    <?php
-                        if(isset($usuario)){
-                            echo<<<eot
+                        <?php
+                        if ($_SESSION !== null) {
+                            echo <<<eot
                             <a class="nav-link" href="../includes/db/cerrarSesion.php">Cerrar Sesion</a>
                             eot;
                         }
-                    ?>
+                        ?>
                     </li>
                 </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
     <?php
-            if(isset($usuario)){
-        echo<<<eot
-    <main>
-        <form method="POST" name="login"action="../includes/db/registrarOrden.php">
+    if (isset($usuario)) {
+        echo <<<eot
+        <main>
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" name="login" action="../includes/db/registrarOrden.php">
             <div class="form-group">
                 <label for="rut">RUT del Proveedor (sin puntos):</label>
-                <input type="text" id="rut" name="rut" class="form-control" required>
+                <input type="text" id="rut" name="rut" class="form-control" style="width: 40%" required>
             </div>
             <div class="form-group">
                 <select name="producto" id="producto">
@@ -139,18 +207,21 @@ $usuario=$_SESSION['usuario'];
                     <option value="10070">Desodorante Vehículo</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Registrar pedido</button>
+            <button type="submit" class="btn btn-orange">Registrar pedido</button>
         </form>
+            </div>
+        </div>
     </main>
-    eot;}
-    else{
+    eot;
+    } else {
         echo <<<EOT
         <div class="login-message">
         <p>No has iniciado sesión</p>
         <a class="login-link" href="loginUsuario.php">Haz clic aquí para iniciar sesión</a>
     </div>
 EOT;
-        }
-        ?>
+    }
+    ?>
 </body>
+
 </html>

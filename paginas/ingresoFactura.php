@@ -1,23 +1,55 @@
 <?php
-session_start(); 
-$usuario=$_SESSION['usuario'];
+session_start();
+$usuario = $_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingreso de Factura - Taller Mecánico SERVIEXPRESS</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Menú Principal - Taller Mecánico SERVIEXPRESS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
         }
-        .container {
+
+        .navbar {
+            background-color: #343a40;
+            padding: 15px 0;
+            border-bottom: 2px solid #fff;
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            margin-right: 10px;
+            padding: 15px 0;
+        }
+
+        .navbar-toggler-icon {
             background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 50px;
+        }
+
+        .btn-orange {
+            background-color: #fd7e14;
+            color: #fff;
+            border: none;
+            margin-bottom: 3%;
+            margin-top: 1%;
+        }
+
+        .btn-orange:hover {
+            background-color: #343a40;
+            color: #fff;
         }
     </style>
     <style>
@@ -31,14 +63,16 @@ $usuario=$_SESSION['usuario'];
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
             <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="menuPrincipalUsuario.php">Inicio</a>
@@ -62,26 +96,29 @@ $usuario=$_SESSION['usuario'];
                         <a class="nav-link" href="reservaCitaUsuario.php">Administrar Reservas</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="generarInforme.php">Generar Informes</a>
+                    </li>
+                    <li class="nav-item">
                         <?php
-                            if($_SESSION!==null){
-                                echo<<<eot
-                                <a class="nav-link" href="../includes/db/cerrarSesion.php">Cerrar Sesion</a>
-                                eot;
-                            }
+                        if ($_SESSION !== null) {
+                            echo <<<eot
+                            <a class="nav-link" href="../includes/db/cerrarSesion.php">Cerrar Sesion</a>
+                            eot;
+                        }
                         ?>
                     </li>
                 </ul>
             </div>
-        </nav>
-    </header>
-    
+        </div>
+    </nav>
+
 
     <div class="container">
         <h1 class="mt-4">Ingreso de Factura</h1>
         <form>
             <div class="form-group">
-                <label for="rut">RUT del Proveedor:</label>
-                <input type="text" class="form-control" id="rut" placeholder="Ingrese el RUT del proveedor">
+                <label for="rut">RUT del Cliente:</label>
+                <input type="text" class="form-control" id="rut" placeholder="Ingrese el RUT del Cliente">
             </div>
             <div class="form-group">
                 <label for="razonSocial">Razón Social:</label>
@@ -116,12 +153,12 @@ $usuario=$_SESSION['usuario'];
                     </tr>
                 </tbody>
             </table>
-            <button type="button" class="btn btn-primary" id="agregarItem">Agregar Ítem</button>
+            <button type="button" class="btn btn-orange" id="agregarItem">Agregar Ítem</button>
             <div class="form-group">
                 <label for="montoTotal">Monto Total:</label>
                 <input type="text" class="form-control" id="montoTotal" readonly>
             </div>
-            <button type="submit" class="btn btn-primary">Ingresar Factura</button>
+            <button type="submit" class="btn btn-orange">Ingresar Factura</button>
         </form>
     </div>
 
@@ -129,8 +166,8 @@ $usuario=$_SESSION['usuario'];
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $("#agregarItem").click(function() {
+        $(document).ready(function () {
+            $("#agregarItem").click(function () {
                 var numItems = $(".item-num").length + 1;
                 var newItem = '<tr>' +
                     '<td class="item-num">' + numItems + '</td>' +
@@ -138,7 +175,7 @@ $usuario=$_SESSION['usuario'];
                     '<td><input type="text" class="form-control cantidad" name="cantidad[]"></td>' +
                     '<td><input type="text" class="form-control precioUnitario" name="precioUnitario[]"></td>' +
                     '<td class="total">0</td>' +
-                '</tr>';
+                    '</tr>';
                 $("table tbody").append(newItem);
             });
 
@@ -162,4 +199,5 @@ $usuario=$_SESSION['usuario'];
         });
     </script>
 </body>
+
 </html>
