@@ -107,6 +107,9 @@ $usuario = $_SESSION['usuario'];
                         <a class="nav-link" href="reservaCitaUsuario.php">Administrar Reservas</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="mostrarProducto.php">Mostrar Productos</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="generarInforme.php">Generar Informes</a>
                     </li>
                     <li class="nav-item">
