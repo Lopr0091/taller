@@ -147,7 +147,7 @@ $usuario = $_SESSION['usuario'];
                 </div>
                 <div class="card-body">
                     <p class="card-text">Registra a un nuevo cliente en el sistema.</p>
-                    <a href="#" class="btn btn-orange">Ver más</a>
+                    <a href="registroCliente.php" class="btn btn-orange">Ver más</a>
                 </div>
             </div>
 
@@ -158,7 +158,7 @@ $usuario = $_SESSION['usuario'];
                 </div>
                 <div class="card-body">
                     <p class="card-text">Administra las boletas y facturas del taller.</p>
-                    <a href="#" class="btn btn-orange">Ver más</a>
+                    <a href="ingresoFactura.php" class="btn btn-orange">Ver más</a>
                 </div>
             </div>
 
@@ -169,7 +169,7 @@ $usuario = $_SESSION['usuario'];
                 </div>
                 <div class="card-body">
                     <p class="card-text">Registra una nueva orden de pedido en el sistema.</p>
-                    <a href="#" class="btn btn-orange">Ver más</a>
+                    <a href="registrarOrden.php" class="btn btn-orange">Ver más</a>
                 </div>
             </div>
         </div>
@@ -182,7 +182,7 @@ $usuario = $_SESSION['usuario'];
                 </div>
                 <div class="card-body">
                     <p class="card-text">Registra los servicios ofrecidos por el taller.</p>
-                    <a href="#" class="btn btn-orange">Ver más</a>
+                    <a href="registroServicio.php" class="btn btn-orange">Ver más</a>
                 </div>
             </div>
 
@@ -193,7 +193,7 @@ $usuario = $_SESSION['usuario'];
                 </div>
                 <div class="card-body">
                     <p class="card-text">Registra a los proveedores asociados al taller.</p>
-                    <a href="#" class="btn btn-orange">Ver más</a>
+                    <a href="registroProveedores.php" class="btn btn-orange">Ver más</a>
                 </div>
             </div>
 
@@ -204,7 +204,7 @@ $usuario = $_SESSION['usuario'];
                 </div>
                 <div class="card-body">
                     <p class="card-text">Administra las reservas de servicios realizadas por los clientes.</p>
-                    <a href="#" class="btn btn-orange">Ver más</a>
+                    <a href="reservaCitaUsuario.php" class="btn btn-orange">Ver más</a>
                 </div>
             </div>
         </div>
@@ -217,7 +217,7 @@ $usuario = $_SESSION['usuario'];
                 </div>
                 <div class="card-body">
                     <p class="card-text">Genera informes relacionados con el taller.</p>
-                    <a href="#" class="btn btn-orange">Ver más</a>
+                    <a href="generarInforme.php" class="btn btn-orange">Ver más</a>
                 </div>
             </div>
         </div>

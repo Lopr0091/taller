@@ -87,7 +87,9 @@ $usuario = $_SESSION['usuario'];
     </style>
 </head>
 <body>
-
+<?php
+    if (isset($usuario)) {
+        echo <<<eot
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
@@ -130,7 +132,7 @@ $usuario = $_SESSION['usuario'];
                 </div>
                 <div class="card-body">
                     <p class="card-text">Agenda y administra tus citas de manera digital.</p>
-                    <a href="#" class="btn btn-orange">Ver más</a>
+                    <a href="reservaCitas.php" class="btn btn-orange">Ver más</a>
                 </div>
             </div>
 
@@ -141,7 +143,7 @@ $usuario = $_SESSION['usuario'];
                 </div>
                 <div class="card-body">
                     <p class="card-text">Accede al historial de tus citas anteriores.</p>
-                    <a href="#" class="btn btn-orange">Ver más</a>
+                    <a href="historialCitas.php" class="btn btn-orange">Ver más</a>
                 </div>
             </div>
 
@@ -149,6 +151,16 @@ $usuario = $_SESSION['usuario'];
 
         <p class="text-center mt-4">Estamos comprometidos con brindarte una experiencia conveniente y eficiente. ¡Gracias por confiar en SERVIEXPRESS!</p>
     </div>
+    eot;
+    }else{
+        echo <<<EOT
+        <div class="login-message">
+        <p>No has iniciado sesión</p>
+        <a class="login-link" href="loginCliente.php">Haz clic aquí para iniciar sesión</a>
+    </div>
+EOT;
+    }
+    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
