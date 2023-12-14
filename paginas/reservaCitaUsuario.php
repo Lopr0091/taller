@@ -1,3 +1,7 @@
+<?php
+session_start(); 
+$usuario=$_SESSION['usuario'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,39 +58,49 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container">
-                <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="menuPrincipalCliente.php">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="reservaCitas.php">Reserva de Citas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="historialCitas.php">Historial de Citas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Perfil</a>
-                        </li>
-                        <li class="nav-item">
-                            <?php
-                            if ($_SESSION !== null) {
-                                echo <<<eot
+<header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="menuPrincipalUsuario.php">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registroCliente.php">Registrar Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ingresoFactura.php">Administración de Boletas/Facturas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registrarOrden.php">Registrar Orden de Pedido</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registroServicio.php">Registrar Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registroProveedores.php">Registrar Proveedores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reservaCitaUsuario.php">Administrar Reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="generarInforme.php">Generar Informes</a>
+                    </li>
+                    <li class="nav-item">
+                    <?php
+                        if($_SESSION!==null){
+                            echo<<<eot
                             <a class="nav-link" href="../includes/db/cerrarSesion.php">Cerrar Sesion</a>
                             eot;
-                            }
-                            ?>
-                        </li>
-                    </ul>
-                </div>
+                        }
+                    ?>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
     <main>
@@ -126,5 +140,4 @@
         </div>
     </main>
 </body>
-
 </html>

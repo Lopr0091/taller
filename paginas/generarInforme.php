@@ -75,7 +75,8 @@ $usuario = $_SESSION['usuario'];
         <p>Seleccione los parámetros de búsqueda y filtros:</p>
         
         <!-- Formulario de generación de informes -->
-        <form id="informeForm" onsubmit="enviarInforme(); return false;">
+        <form method="POST"  name="informeForm" id="informeForm" action="../includes/db/generarInforme.php" target="_blank">
+            <!--
             <div class="form-group">
                 <label for="fechaInicio">Fecha de Inicio:</label>
                 <input type="date" id="fechaInicio" name="fechaInicio" class="form-control">
@@ -84,12 +85,12 @@ $usuario = $_SESSION['usuario'];
                 <label for="fechaFin">Fecha de Fin:</label>
                 <input type="date" id="fechaFin" name="fechaFin" class="form-control">
             </div>
+            -->
             <div class="form-group">
                 <label for="tipoInforme">Tipo de Informe:</label>
                 <select id="tipoInforme" name="tipoInforme" class="form-control">
-                    <option value="1">Informe de Ventas</option>
-                    <option value="2">Informe de Servicios</option>
-                    <option value="3">Informe de Clientes</option>
+                    <option value="1">Informe de Servicios</option>
+                    <option value="2">Informe de Clientes</option>
                 </select>
             </div>
             <div class="form-group">
@@ -113,13 +114,6 @@ $usuario = $_SESSION['usuario'];
         EOT;
         }
         ?>
-    <script>
-        function enviarInforme() {
-            // Aquí puedes agregar el código para enviar el informe al correo
-            // Por ahora, mostraremos solo la alerta
-            alert("El informe ha sido enviado al correo.");
-        }
-    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
