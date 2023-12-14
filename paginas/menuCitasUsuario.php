@@ -7,7 +7,7 @@ $usuario = $_SESSION['usuario'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Principal - Taller Mecánico SERVIEXPRESS</title>
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -91,10 +91,8 @@ $usuario = $_SESSION['usuario'];
     </style>
 </head>
 <body>
-    <?php
-    if (isset($usuario)) {
-        echo <<<eot
-        <nav class="navbar navbar-expand-lg navbar-dark">
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -133,107 +131,29 @@ $usuario = $_SESSION['usuario'];
             </div>
         </div>
     </nav>
-
-    <!-- Contenido de bienvenida y cards -->
-    <div class="container mt-5">
-        <h1 class="text-center mb-4" style="color: #fd7e14;">¡Bienvenido al Taller Mecánico SERVIEXPRESS!</h1>
-        <p class="text-center" style="color: #343a40;">Gracias por confiar en SERVIEXPRESS, tu taller mecánico de confianza. A continuación, encontrarás opciones para gestionar distintos aspectos del taller:</p>
-        
-        <div class="container-cards">
-            <!-- Card 1 -->
+    </header>
+    <main>
+    <div class="container-cards">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Registrar Cliente</h5>
+                    <h5 class="card-title">Registrar citas</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Registra a un nuevo cliente en el sistema.</p>
-                    <a href="registroCliente.php" class="btn btn-orange">Ver más</a>
+                    <p class="card-text">Registra una cita en el sistema.</p>
+                    <a href="reservaCitaUsuario.php" class="btn btn-orange">Ver más</a>
+            
                 </div>
             </div>
-
-            <!-- Card 2 -->
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Administración de Boletas/Facturas</h5>
+                    <h5 class="card-title">citas</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Administra las boletas y facturas del taller.</p>
-                    <a href="ingresoFactura.php" class="btn btn-orange">Ver más</a>
-                </div>
+                    <p class="card-text">Revisa las citas de los clientes</p>
+                    <a href="historialCitasUsuario.php" class="btn btn-orange">Ver más</a>
             </div>
-
-            <!-- Card 3 -->
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Registrar Orden de Pedido</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Registra una nueva orden de pedido en el sistema.</p>
-                    <a href="registrarOrden.php" class="btn btn-orange">Ver más</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-cards">
-            <!-- Card 4 -->
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Registrar Servicios</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Registra los servicios ofrecidos por el taller.</p>
-                    <a href="registroServicio.php" class="btn btn-orange">Ver más</a>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Registrar Proveedores</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Registra a los proveedores asociados al taller.</p>
-                    <a href="registroProveedores.php" class="btn btn-orange">Ver más</a>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Administrar Reservas</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Administra las reservas de servicios realizadas por los clientes.</p>
-                    <a href="menuCitasUsuario.php" class="btn btn-orange">Ver más</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-cards">
-            <!-- Card 7 -->
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Generar Informes</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Genera informes relacionados con el taller.</p>
-                    <a href="generarInforme.php" class="btn btn-orange">Ver más</a>
-                </div>
-            </div>
-        </div>
-
-        <p class="text-center mt-4" style="color: #343a40;">Estamos comprometidos con brindarte una experiencia conveniente y eficiente. ¡Gracias por confiar en SERVIEXPRESS!</p>
     </div>
-eot;
-    } else {
-        echo <<<EOT
-        <div class="login-message">
-        <p>No has iniciado sesión</p>
-        <a class="login-link" href="loginUsuario.php">Haz clic aquí para iniciar sesión</a>
-    </div>
-EOT;
-    }
-    ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    </main>
 </body>
 </html>
