@@ -153,8 +153,17 @@ $usuario = $_SESSION['usuario'];
                     <a href="historialCitasUsuario.php" class="btn btn-orange">Ver más</a>
             </div>
     </div>
+    </div>
     <div class="container-cards">
-        aqui van las citas del dia 
+        <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">citas de hoy</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Las citas reservadas para hoy</p>
+                    
+            </div>
+    </div>
     </div>
     </main>
 </body>
