@@ -8,7 +8,7 @@ $usuario = $_SESSION['usuario'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Principal - Taller Mecánico SERVIEXPRESS</title>
+    <title>Ingreso de Facturas - Taller Mecánico SERVIEXPRESS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -94,6 +94,9 @@ $usuario = $_SESSION['usuario'];
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="reservaCitaUsuario.php">Administrar Reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mostrarProducto.php">Mostrar Productos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="generarInforme.php">Generar Informes</a>
