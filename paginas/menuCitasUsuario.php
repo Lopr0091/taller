@@ -156,7 +156,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">citas</h5>
+                    <h5 class="card-title">Citas por Cliente</h5>
                 </div>
                 <div class="card-body">
                     <p class="card-text">Revisa las citas de los clientes</p>
