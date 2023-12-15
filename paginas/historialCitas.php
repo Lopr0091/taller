@@ -6,7 +6,7 @@ require '../config.php';
 // Verificar si se hizo clic en el botón "Anular"
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anular_reserva'])) {
     $nro_reserva_a_anular = $_POST['nro_reserva'];
-    
+
     // Llamar al procedimiento almacenado para eliminar la reserva
     $eliminar_reserva = "CALL procedimiento_eliminarReserva(?)";
     $stmt_eliminar = mysqli_prepare($conectar, $eliminar_reserva);
@@ -37,6 +37,7 @@ mysqli_close($conectar);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,14 +54,31 @@ mysqli_close($conectar);
             background-color: #f8f9fa;
         }
 
-        header {
-            background-color: #343a40;
-            padding: 15px 0;
+        .login-message {
+            text-align: center;
+            margin: 20% auto;
+            max-width: 400px;
         }
 
-        .navbar-brand, .navbar-nav .nav-link {
-            color: #fff !important;
+        .login-link {
+            display: block;
+            margin-top: 10px;
         }
+
+        .navbar {
+            background-color: #343a40;
+            /* Cambiado a gris del menú */
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
 
         main {
             margin-top: 20px;
@@ -72,17 +90,21 @@ mysqli_close($conectar);
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
             <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <!-- Mantenemos la clase justify-content-end -->
+
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="menuPrincipalCliente.php">Inicio</a>
+                        <a class="nav-link" href="../index.php">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="reservaCitas.php">Reserva de Citas</a>
@@ -102,10 +124,10 @@ mysqli_close($conectar);
                         }
                         ?>
                     </li>
-                </ul>
             </div>
-        </nav>
-    </header>
+            </ul>
+        </div>
+    </nav>
     <main>
         <div class="table-container">
             <h1 class="text-center">Historial de Citas</h1>
@@ -125,13 +147,19 @@ mysqli_close($conectar);
                     <tbody>
                         <?php foreach ($reservas as $reserva): ?>
                             <?php
-                                // Verifica si la fecha de la reserva es posterior al día de hoy
-                                $puede_anular = strtotime($reserva['fecha_reserva']) > strtotime(date("Y-m-d"));
+                            // Verifica si la fecha de la reserva es posterior al día de hoy
+                            $puede_anular = strtotime($reserva['fecha_reserva']) > strtotime(date("Y-m-d"));
                             ?>
                             <tr>
-                                <td><?php echo $reserva['nro_reserva']; ?></td>
-                                <td><?php echo $reserva['fecha_reserva']; ?></td>
-                                <td><?php echo $reserva['hora_reserva']; ?></td>
+                                <td>
+                                    <?php echo $reserva['nro_reserva']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $reserva['fecha_reserva']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $reserva['hora_reserva']; ?>
+                                </td>
                                 <td>
                                     <?php if ($puede_anular): ?>
                                         <!-- Agrega un formulario por cada botón "Anular" -->
@@ -151,4 +179,5 @@ mysqli_close($conectar);
         </div>
     </main>
 </body>
+
 </html>
