@@ -130,7 +130,7 @@ require '../config.php';
             <div class="card mt-4">
                 <div class="card-body">
                     <h1>Registro de Servicio</h1>
-                    <form method="POST" name="login" action="../includes/db/registrarCliente.php">
+                    <form method="POST" name="login" action="../includes/db/registrarServicio.php">
                         <div class="form-group">
                             <label for="servicio">Servicio:</label>
                             <select class="form-control" id="servicio" name="servicio" onchange="mostrarPrecio()">

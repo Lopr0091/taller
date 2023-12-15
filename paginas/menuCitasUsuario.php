@@ -2,7 +2,7 @@
 session_start();
 $usuario = $_SESSION['usuario'];
 require '../config.php';
-$sql = "SELECT * FROM `reserva` where fecha_reserva=sysdate();";
+$sql = "SELECT * FROM `reserva` where fecha_reserva=DATE(sysdate());";
 $result = mysqli_query($conectar, $sql);
 $resultado = [];
 while ($row = mysqli_fetch_assoc($result)) {

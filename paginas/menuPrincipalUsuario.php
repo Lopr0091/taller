@@ -16,6 +16,16 @@ $usuario = $_SESSION['usuario'];
             padding: 0;
             background-color: #f8f9fa;
         }
+        .login-message {
+            text-align: center;
+            margin: 20% auto;
+            max-width: 400px;
+        }
+
+        .login-link {
+            display: block;
+            margin-top: 10px;
+        }
 
         .navbar {
             background-color: #343a40;
