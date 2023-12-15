@@ -93,7 +93,7 @@ $usuario = $_SESSION['usuario'];
                         <a class="nav-link" href="registroProveedores.php">Registrar Proveedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="reservaCitaUsuario.php">Administrar Reservas</a>
+                        <a class="nav-link" href="menuCitasUsuario.php">Administrar Reservas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="mostrarProducto.php">Mostrar Productos</a>

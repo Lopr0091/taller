@@ -98,7 +98,7 @@ $conectarsql = mysqli_query($conectar, $sql);
                         <a class="nav-link" href="registroProveedores.php">Registrar Proveedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="reservaCitaUsuario.php">Administrar Reservas</a>
+                        <a class="nav-link" href="menuCitasUsuario.php">Administrar Reservas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="mostrarProducto.php">Mostrar Productos</a>
@@ -120,51 +120,53 @@ $conectarsql = mysqli_query($conectar, $sql);
         </div>
     </nav>
     <main>
+        <h1>Mostrar Productos.</h1><br />
         <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Stock</th>
-                    <th>Valor</th>
-                </tr>
-            </thead>
-            <?php
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Stock</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
 
-            while ($row = $conectarsql->fetch_array()) {
-                $id = $row['id_producto'];
-                $nombre_producto = $row['nombre_producto'];
-                $descripcion = $row['descripcion'];
-                $stock = $row['stock'];
-                $valor = $row['valor'];
-                ?>
-                <div id="productos">
-
-                    <tbody>
-                        <tr>
-                            <td>
-                                <?php echo $id ?>
-                            </td>
-                            <td>
-                                <?php echo $nombre_producto ?>
-                            </td>
-                            <td>
-                                <?php echo $descripcion ?>
-                            </td>
-                            <td>
-                                <?php echo $stock ?>
-                            </td>
-                            <td>
-                                <?php echo $valor ?>
-                            </td>
-                        </tr>
-                    </tbody>
-            </table>
-            </div>
-            <?php
-            }
+        <?php
+        while ($row = $conectarsql->fetch_array()) {
+            $id = $row['id_producto'];
+            $nombre_producto = $row['nombre_producto'];
+            $descripcion = $row['descripcion'];
+            $stock = $row['stock'];
+            $valor = $row['valor'];
             ?>
+
+            <tr>
+                <td>
+                    <?php echo $id ?>
+                </td>
+                <td>
+                    <?php echo $nombre_producto ?>
+                </td>
+                <td>
+                    <?php echo $descripcion ?>
+                </td>
+                <td>
+                    <?php echo $stock ?>
+                </td>
+                <td>
+                    <?php echo $valor ?>
+                </td>
+            </tr>
+
+        <?php
+        }
+        ?>
+
+    </tbody>
+</table>
+
     </main>
 </body>
 

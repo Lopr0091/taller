@@ -1,6 +1,6 @@
 <?php
-session_start(); 
-$usuario=$_SESSION['usuario'];
+session_start();
+$usuario = $_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,6 @@ $usuario=$_SESSION['usuario'];
     <title>Reserva de Citas - Taller Mecánico SERVIEXPRESS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-         <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -39,7 +38,6 @@ $usuario=$_SESSION['usuario'];
         .navbar-toggler-icon {
             background-color: #fff;
         }
-
 
         main {
             margin-top: 20px;
@@ -71,13 +69,14 @@ $usuario=$_SESSION['usuario'];
 </head>
 
 <body>
-<header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
             <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="menuPrincipalUsuario.php">Inicio</a>
@@ -98,7 +97,7 @@ $usuario=$_SESSION['usuario'];
                         <a class="nav-link" href="registroProveedores.php">Registrar Proveedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="reservaCitaUsuario.php">Administrar Reservas</a>
+                        <a class="nav-link" href="menuCitasUsuario.php">Administrar Reservas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="mostrarProducto.php">Mostrar Productos</a>
@@ -107,18 +106,17 @@ $usuario=$_SESSION['usuario'];
                         <a class="nav-link" href="generarInforme.php">Generar Informes</a>
                     </li>
                     <li class="nav-item">
-                    <?php
-                        if($_SESSION!==null){
-                            echo<<<eot
+                        <?php
+                        if ($_SESSION !== null) {
+                            echo <<<eot
                             <a class="nav-link" href="../includes/db/cerrarSesion.php">Cerrar Sesion</a>
                             eot;
                         }
-                    ?>
+                        ?>
                     </li>
                 </ul>
             </div>
-        </nav>
-    </header>
+    </nav>
     <main>
         <div class="container">
             <h1 class="mb-4 text-center">Reserva de Citas</h1>
@@ -156,4 +154,5 @@ $usuario=$_SESSION['usuario'];
         </div>
     </main>
 </body>
+
 </html>

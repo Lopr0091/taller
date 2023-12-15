@@ -12,11 +12,11 @@ require '../config.php';
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
+         body {
             font-family: 'Arial', sans-serif;
-            padding: auto;
+            margin: 0;
+            padding: 0;
             background-color: #f8f9fa;
-            margin: auto;
         }
 
         .navbar {
@@ -59,8 +59,7 @@ require '../config.php';
             display: grid;
 
         }
-    </style>
-    <style>
+
         .login-message {
             text-align: center;
         }
@@ -73,7 +72,7 @@ require '../config.php';
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -101,7 +100,7 @@ require '../config.php';
                         <a class="nav-link" href="registroProveedores.php">Registrar Proveedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="reservaCitaUsuario.php">Administrar Reservas</a>
+                        <a class="nav-link" href="menuCitasUsuario.php">Administrar Reservas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="mostrarProducto.php">Mostrar Productos</a>
