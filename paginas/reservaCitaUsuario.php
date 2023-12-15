@@ -11,6 +11,7 @@ $usuario=$_SESSION['usuario'];
     <title>Reserva de Citas - Taller Mecánico SERVIEXPRESS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+         <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -18,15 +19,27 @@ $usuario=$_SESSION['usuario'];
             background-color: #f8f9fa;
         }
 
-        header {
+        .navbar {
             background-color: #343a40;
+            padding: 15px 0;
+            border-bottom: 2px solid #fff;
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            margin-right: 10px;
             padding: 15px 0;
         }
 
-        .navbar-brand,
-        .navbar-nav .nav-link {
-            color: #fff !important;
+        .navbar-toggler-icon {
+            background-color: #fff;
         }
+
 
         main {
             margin-top: 20px;

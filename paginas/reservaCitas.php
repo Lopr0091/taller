@@ -12,15 +12,94 @@ $usuario=$_SESSION['usuario'];
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .login-message {
+            text-align: center;
+            margin: 20% auto;
+            max-width: 400px;
+        }
+
+        .login-link {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .navbar {
+            background-color: #343a40; /* Cambiado a gris del menú */
+        }
+
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        .container-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .card {
+            width: 300px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .card-header {
+            background-color: #fd7e14;
+            color: #fff;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card-body {
+            background-color: #fd7e14;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .card-title {
+            color: #fff;
+        }
+
+        .card-text {
+            color: #fff;
+        }
+
+        .btn-orange {
+            background-color: #fd7e14;
+            color: #fff;
+            border: none;
+            margin-bottom: 3%;
+            margin-top: 1%;
+        }
+
+        .btn-orange:hover {
+            background-color: #343a40;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-    <head>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+   <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
             <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <!-- Mantenemos la clase justify-content-end -->
+
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="../index.php">Inicio</a>
@@ -47,7 +126,6 @@ $usuario=$_SESSION['usuario'];
                 </ul>
             </div>
         </nav>
-    </head>
     <main>
         <div class="container mt-4">
             <h1>Reserva de Citas</h1>
@@ -73,7 +151,7 @@ $usuario=$_SESSION['usuario'];
                 </select>
             </div>
 
-                <button type="submit" class="btn btn-primary">Reservar Cita</button>
+                <button type="submit" class="btn btn-orange">Reservar Cita</button>
             </form>
         </div>
     </main>
