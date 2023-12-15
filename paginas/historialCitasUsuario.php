@@ -1,14 +1,52 @@
 <?php
 session_start();
-$usuario = $_SESSION['usuario'];
 require '../config.php';
+
+// Verificar si se hizo clic en el botón "Anular"
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anular_reserva'])) {
+    $nro_reserva_a_anular = $_POST['nro_reserva'];
+
+    // Llamar al procedimiento almacenado para eliminar la reserva
+    $eliminar_reserva = "CALL procedimiento_eliminarReserva(?)";
+    $stmt_eliminar = mysqli_prepare($conectar, $eliminar_reserva);
+    mysqli_stmt_bind_param($stmt_eliminar, 'i', $nro_reserva_a_anular);
+    mysqli_stmt_execute($stmt_eliminar);
+    mysqli_stmt_close($stmt_eliminar);
+}
+
+// Verificar si se envió el formulario para ingresar el "run"
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_run'])) {
+    // Obtener el "run" ingresado por el usuario
+    $usuario = $_POST['run'];
+
+    // Consultar las reservas del usuario
+    $query = "SELECT nro_reserva, fecha_reserva, hora_reserva FROM reserva WHERE cliente_numrun1 = ?";
+    $stmt = mysqli_prepare($conectar, $query);
+    mysqli_stmt_bind_param($stmt, 'i', $usuario);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $nro_reserva, $fecha_reserva, $hora_reserva);
+
+    $reservas = [];
+    while (mysqli_stmt_fetch($stmt)) {
+        $reservas[] = [
+            'nro_reserva' => $nro_reserva,
+            'fecha_reserva' => $fecha_reserva,
+            'hora_reserva' => $hora_reserva,
+        ];
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+mysqli_close($conectar);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Historial de Citas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -92,7 +130,7 @@ require '../config.php';
     </style>
 </head>
 <body>
-    <header>
+<header>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">Taller SERVIEXPRESS</a>
@@ -134,7 +172,57 @@ require '../config.php';
     </nav>
     </header>
     <main>
+    <div class="container">
+        <h1 class="text-center">Historial de Citas</h1>
+        
+        <!-- Formulario para ingresar el "run" -->
+        <form method="post" action="">
+            <label for="run">Ingrese el run del cliente:</label>
+            <input type="text" id="run" name="run" required>
+            <button type="submit" name="submit_run">Consultar Reservas</button>
+        </form>
 
+        <?php if (isset($reservas)): ?>
+            <?php if (empty($reservas)): ?>
+                <p class="text-center">No hay reservas disponibles para el run proporcionado.</p>
+            <?php else: ?>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Número de Reserva</th>
+                            <th>Fecha de Reserva</th>
+                            <th>Hora de Reserva</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($reservas as $reserva): ?>
+                            <?php
+                                // Verifica si la fecha de la reserva es posterior al día de hoy
+                                $puede_anular = strtotime($reserva['fecha_reserva']) > strtotime(date("Y-m-d"));
+                            ?>
+                            <tr>
+                                <td><?php echo $reserva['nro_reserva']; ?></td>
+                                <td><?php echo $reserva['fecha_reserva']; ?></td>
+                                <td><?php echo $reserva['hora_reserva']; ?></td>
+                                <td>
+                                    <?php if ($puede_anular): ?>
+                                        <!-- Agrega un formulario por cada botón "Anular" -->
+                                        <form method="post" action="">
+                                            <input type="hidden" name="nro_reserva" value="<?php echo $reserva['nro_reserva']; ?>">
+                                            <button type="submit" name="anular_reserva" class="btn btn-danger">Anular</button>
+                                        </form>
+                                    <?php else: ?>
+                                        <span>La reserva ya pasó</span>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
+        <?php endif; ?>
+    </div>
     </main>
 </body>
 </html>
