@@ -1,6 +1,13 @@
 <?php
 session_start();
 $usuario = $_SESSION['usuario'];
+require '../config.php';
+$sql = "SELECT * FROM `reserva` where fecha_reserva=sysdate();";
+$result = mysqli_query($conectar, $sql);
+$resultado = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $resultado[] = $row;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -161,7 +168,28 @@ $usuario = $_SESSION['usuario'];
                 </div>
                 <div class="card-body">
                     <p class="card-text">Las citas reservadas para hoy</p>
-                    
+                    <div class="table-container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nro. Reserva</th>
+                <th>Fecha</th>
+                <th>Hora </th>
+                <th>Run</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($resultado as $reserva): ?>
+                <tr>
+                    <td><?php echo $reserva['nro_reserva']; ?></td>
+                    <td><?php echo $reserva['fecha_reserva']; ?></td>
+                    <td><?php echo $reserva['hora_reserva']; ?></td>
+                    <td><?php echo $reserva['cliente_numrun1']; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
             </div>
     </div>
     </div>
